@@ -1,5 +1,7 @@
+# expRepo - x
+
 ### Experimental repo for github actions
 
-- [] Commit Lint
-- [] Test API collection
-- [] Semantic Releases
+- [ ] Commit Lint
+- [ ] Test API collection
+- [ ] Semantic Releases
