@@ -2,4 +2,4 @@
 
 - [ ] Commit Lint
 - [ ] Test API collection
-- [ ] Semantic Releases
+- [ ] Semantic Release
