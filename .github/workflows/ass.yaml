@@ -4,11 +4,12 @@ on:
     branches:
       - main
 jobs:
-  test-api-newman:
+  test-api:
     runs-on: ubuntu-latest
     steps:
-  		- uses: actions/checkout@main
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@main
 
-	  	- name: Docker for newman
-		  	run: |
-			  docker run -v $(pwd)/test:/etc/newman -t postman/newman:latest run "HttpbinForNewman.json" --reporters="cli"`
+    - name: Docker for newman
+      run: |
+        docker run -v $(pwd)/test:/etc/newman -t postman/newman:latest run "HttpbinForNewman.json" --reporters="cli"`
