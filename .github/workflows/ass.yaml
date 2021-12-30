@@ -4,11 +4,11 @@ on:
     branches:
       - main
 jobs:
-  test-api:
+  test-api-newman:
     runs-on: ubuntu-latest
     steps:
-			- uses: actions/checkout@main
+  		- uses: actions/checkout@main
 
-			- name: Docker for newman
-			  run: |
-				docker run -v $(pwd)/test:/etc/newman -t postman/newman:latest run "HttpbinForNewman.json" --reporters="cli"`
+	  	- name: Docker for newman
+		  	run: |
+			  docker run -v $(pwd)/test:/etc/newman -t postman/newman:latest run "HttpbinForNewman.json" --reporters="cli"`
