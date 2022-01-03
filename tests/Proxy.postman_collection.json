@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "38e9768a-f5e8-4ce5-946c-d1612d1056b0",
+		"name": "Proxy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get User Processes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/proxy/getUserProcesses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"proxy",
+						"getUserProcesses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Process Nodes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/process/:processKey",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"process",
+						":processKey"
+					],
+					"variable": [
+						{
+							"key": "processKey",
+							"value": "50a3ab13-6101-4706-bd3a-9260d41f3f5a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Single (Node)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}} ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"processID\": \"50a3ab13-6101-4706-bd3a-9260d41f3f5a\",\r\n    \"type\": \"node\",\r\n    \"node\": {\r\n        \"node_type\": \"positions\",\r\n        \"results\": [],\r\n        \"data\": {\r\n            \"type\": \"end\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/createSingle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createSingle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Single (Edge)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"processID\": \"50a3ab13-6101-4706-bd3a-9260d41f3f5a\",\r\n    \"type\": \"edge\",\r\n    \"edge\": {\r\n        \"edge_type\": \"process_edge\",\r\n        \"edge_from\": {\r\n            \"node_type\": \"positions\",\r\n            \"node_key\": \"471e327e-3576-4faa-8254-65e51b51b372\"\r\n        },\r\n        \"edge_to\": {\r\n            \"node_type\": \"tasks\",\r\n            \"node_key\": \"5a1d0226-1285-4087-afda-d386334cbcae\"\r\n        },\r\n        \"data\": {},\r\n        \"results\": []\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/createSingle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createSingle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Single (Node)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"node\",\r\n    \"node\": {\r\n        \"node_type\": \"checkpoints\",\r\n        \"node_key\": \"15c56845-cf67-4a5e-80dc-9549beb52f00\",\r\n        \"results\": [],\r\n        \"data\": {\r\n            \"name\": \"failed to convert 123456\",\r\n            \"next\": true,\r\n            \"process\": \"marketing 123465\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/updateSingle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateSingle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Single (Edge)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"edge\",\r\n    \"edge\": {\r\n        \"edge_from\": {\r\n            \"node_type\": \"gateways\",\r\n            \"node_key\": \"073fa7bf-9f00-452c-90eb-6b43e0de36dc\"\r\n        },\r\n        \"edge_to\": {\r\n            \"node_type\": \"checkpoints\",\r\n            \"node_key\": \"15c56845-cf67-4a5e-80dc-9549beb52f00\"\r\n        },\r\n        \"edge_type\": \"split\",\r\n        \"edge_key\": \"aba529d3-dd85-4920-9577-0b4397c48383\",\r\n        \"results\": [],\r\n        \"data\": {\r\n            \"decision\": \"not interested\",\r\n            \"probability\": 0.6\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/updateSingle",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateSingle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete (Node)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"node\",\r\n    \"node\": {\r\n        \"node_type\": \"tasks\",\r\n        \"node_key\": \"5e22233c-341e-49d5-880a-ef5e1af8a2ab\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/delete",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
