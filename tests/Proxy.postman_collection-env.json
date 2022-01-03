@@ -3,7 +3,8 @@
 	"name": "Proxy",
 	"values": [
 		{
-			"token": "38e9768a-f5e8-4ce5-946c-d1612d1056b0"
+			"token": "38e9768a-f5e8-4ce5-946c-d1612d1056b0",
+			"url": "http://localhost:8080/proxy/"
 		}
 	],
 	"_postman_variable_scope": "environment",
